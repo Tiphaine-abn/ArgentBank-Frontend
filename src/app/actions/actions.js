@@ -1,0 +1,12 @@
+// 1. LOG_IN
+
+// 2. LOG_IN_FAILED
+
+// 3. LOG_OUT
+
+// 4. REMEMBER_ME
+
+// 5. GET_PROFILE
+
+// 6. MODIFY_PROFILE
+
