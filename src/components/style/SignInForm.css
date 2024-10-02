@@ -12,6 +12,7 @@
     border-color: #00bc77;
     background-color: #00bc77;
     color: #fff;
+    text-decoration: underline;
 }
 
 .sign-in-content {
@@ -24,7 +25,7 @@
 }
 
 .sign-in-icon {
-    font-size: 5rem;
+    font-size: 1.5rem;
 }
 
 .input-remember {

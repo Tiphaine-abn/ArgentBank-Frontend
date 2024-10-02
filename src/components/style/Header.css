@@ -8,6 +8,7 @@
 .main-nav a {
     font-weight: bold;
     color: #2c3e50;
+    text-decoration: none;
 }
 
 .main-nav a.router-link-exact-active {
@@ -15,11 +16,29 @@
 }
 
 .main-nav-item {
-    text-decoration: none;
     margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
 }
 
-.main-nav-item:hover {
+.user-info {
+    text-decoration: none;
+}
+
+.user-info:hover {
+    text-decoration: underline;
+}
+
+.logout-button {
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.logout-button:hover {
+    text-decoration: underline;
+}
+
+.user-button:hover {
     text-decoration: underline;
 }
 
@@ -31,4 +50,12 @@
 .main-nav-logo-image {
     max-width: 100%;
     width: 200px;
+}
+
+.logout-button {
+    border: none;
+    background-color: white;
+    font-weight: bold;
+    color: #2c3e50;
+    cursor: pointer;
 }

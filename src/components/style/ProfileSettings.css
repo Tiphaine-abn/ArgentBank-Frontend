@@ -7,7 +7,7 @@
     justify-content: center;
 }
 
-.sign-up-button {
+.edit-profile-button {
     display: block;
     width: 20%;
     padding: 8px;
@@ -20,7 +20,7 @@
     margin-right: 5px;
 }
 
-.sign-up-content {
+.edit-profile-content {
     box-sizing: border-box;
     background-color: white;
     width: 500px;
@@ -29,20 +29,32 @@
     padding: 2rem;
 }
 
-.sign-up-input-wrapper {
+.edit-profile-content h1 {
+    color: #2c3e50;
+}
+
+
+.edit-profile-input-wrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 1rem;
 }
 
-.sign-up-input-wrapper label {
+.edit-profile-input-wrapper label {
     font-weight: bold;
     color: black;
     margin-right: 10px;
 }
 
-.sign-up-input-wrapper input {
+.edit-profile-input-wrapper input {
     padding: 5px;
     font-size: 1.2rem;
+}
+
+input[readonly] {
+    background-color: #f0f0f0;
+    color: #666;
+    border: 1px solid #ccc;
+    cursor: not-allowed;
 }
