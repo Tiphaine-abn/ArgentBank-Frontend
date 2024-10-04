@@ -10,13 +10,24 @@ function Header() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const isConnected = useSelector((state) => state.user.isConnected);
-    console.log(isConnected);
+    console.log('Utilisateur connecté :', isConnected);
     const profile = useSelector((state) => state.user.profile); // Récupère les infos du profil
-    console.log(profile);
+    console.log('Données du profile :', profile);
 
+    // Vérifie si l'utilisateur est connecté en vérifiant la présence d'un token
+    useEffect(() => {
+        const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+        if (!token) {
+            dispatch(logOut()); // Déconnecte l'utilisateur si aucun token n'est présent
+        }
+    }, [dispatch]);
+
+    // Fonction pour gérer la déconnexion
     const handleLogout = () => {
-        dispatch(logOut()); // Déclenche l'action de déconnexion
-        navigate('/'); // Redirige vers la page d'acueil    
+        dispatch(logOut());
+        localStorage.removeItem('token');
+        sessionStorage.removeItem('token');
+        navigate('/');
     };
 
     return (
@@ -25,17 +36,17 @@ function Header() {
                 <img className="main-nav-logo-image" src={logo} alt="Argent Bank Logo" />
             </NavLink>
 
-            {/* Si l'utilisateur est connecté */}
+            {/* Options de navigation selon l'état de connexion de l'utilisateur */}
             {isConnected ? (
                 <div className="main-nav-item">
                     <NavLink className="user-info" to="/userprofile">
                         <i className="fa fa-user-circle"></i>
-                        <span> {profile?.userName || profile?.firstName} </span>
+                        <span> {profile?.userName || profile?.firstName} </span> {/* Affiche le nom d'utilisateur ou le prénom */}
                     </NavLink>
                     <NavLink
                         to="/"
                         className="logout-button"
-                        onClick={handleLogout}
+                        onClick={handleLogout} // Déconnexion lors du clic
                     >
                         <i className="fa fa-right-from-bracket"></i> Sign Out
                     </NavLink>

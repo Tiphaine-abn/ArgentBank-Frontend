@@ -1,14 +1,6 @@
 import React from 'react';
+import { bannerData } from '../data/data';
 import './style/Banner.css';
-import backgroundImage from '../assets/img/bank-tree.webp';
-
-// Données de la bannière
-const bannerData = {
-    title: "Promoted Content",
-    subtitles: ["No fees.", "No minimum deposit.", "High interest rates."],
-    text: "Open a savings account with Argent Bank today!",
-    backgroundImage: backgroundImage,
-};
 
 const Banner = () => {
     const { title, subtitles, text, backgroundImage } = bannerData;

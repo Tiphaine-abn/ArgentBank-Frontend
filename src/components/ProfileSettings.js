@@ -8,20 +8,20 @@ function ProfileSettings() {
     const profile = useSelector((state) => state.user.profile); // Récupère les informations du profil
     const token = useSelector((state) => state.user.token); // Récupère le token
 
-    // Gestion de l'état des champs du profil
+    // État pour gérer les champs du profil
     const [username, setUsername] = useState('');
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
-    const [isEditing, setIsEditing] = useState(false); // mode non-édition par défaut
+    const [isEditing, setIsEditing] = useState(false); // Mode édition désactivé par défaut
 
-    // Récupération des informations du profil utilisateur lors du chargement du composant
+    // Récupération des informations du profil lors du chargement du composant
     useEffect(() => {
         if (token) {
             dispatch(getUserProfile());
         }
     }, [token, dispatch]);
 
-    // Mise à jour des champs du formulaire avec les données récupérées du profil utilisateur 
+    // Mise à jour des champs avec les données récupérées
     useEffect(() => {
         if (profile) {
             setUsername(profile.username || '');
@@ -30,12 +30,12 @@ function ProfileSettings() {
         }
     }, [profile]);
 
-    // Gestion du passage en mode édition
+    // Active le mode édition
     const handleEditName = () => {
         setIsEditing(true);
     };
 
-    // Enregistrement des modifications
+    // Enregistre les modifications apportées
     const handleSave = (e) => {
         e.preventDefault();
         const profileData = { userName: username, firstName: firstname, lastName: lastname };
@@ -44,7 +44,7 @@ function ProfileSettings() {
             .unwrap()
             .then((updatedProfile) => {
                 console.log('Réponse API:', updatedProfile);
-                setIsEditing(false);
+                setIsEditing(false); // Désactive le mode édition après sauvegarde
                 console.log('Profil mis à jour avec succès!');
             })
             .catch((error) => {
@@ -54,7 +54,7 @@ function ProfileSettings() {
 
     return (
         <div className="header">
-            {isEditing ? ( // Affiche le formulaire si l'utilisateur est en mode édition
+            {isEditing ? ( // Affiche le formulaire en mode édition
                 <section className="edit-profile-content">
                     <h1>Edit User Info</h1>
                     <form onSubmit={handleSave}>
@@ -64,7 +64,7 @@ function ProfileSettings() {
                                 type="text"
                                 id="username"
                                 value={username}
-                                onChange={(e) => setUsername(e.target.value)}
+                                onChange={(e) => setUsername(e.target.value)} // Met à jour le nom d'utilisateur
                             />
                         </div>
                         <div className="edit-profile-input-wrapper">
@@ -73,7 +73,7 @@ function ProfileSettings() {
                                 type="text"
                                 id="firstname"
                                 value={firstname}
-                                readOnly
+                                readOnly // Champ non modifiable
                             />
                         </div>
                         <div className="edit-profile-input-wrapper">
@@ -82,7 +82,7 @@ function ProfileSettings() {
                                 type="text"
                                 id="lastname"
                                 value={lastname}
-                                readOnly
+                                readOnly // Champ non modifiable
                             />
                         </div>
                         <div className="button-container">
@@ -91,7 +91,7 @@ function ProfileSettings() {
                         </div>
                     </form>
                 </section>
-            ) : ( // Affiche le message de bienvenue si l'utilisateur n'est pas en mode édition
+            ) : ( // Affiche le message de bienvenue si non en mode édition
                 <div>
                     <h1>Welcome back <br /> {firstname} {lastname} !</h1>
                     <button className="edit-button" onClick={handleEditName}>Edit Name</button>

@@ -3,14 +3,13 @@ import userReducer from '../features/userSlice';
 
 // Sauvegarder l'état dans localStorage
 const saveState = (state) => {
-    localStorage.setItem('reduxState', JSON.stringify(state)); // Convertit l'état en chaîne JSON et l'enregistre dans localStorage sous la clé 'reduxState'= conserve l'état même après rechargement
-
+    localStorage.setItem('reduxState', JSON.stringify(state)); // Enregistre l'état sous 'reduxState'
 };
 
 // Charger l'état depuis localStorage
 const loadState = () => {
     const savedState = localStorage.getItem('reduxState'); // Récupérer l'état stocké dans localStorage
-    return savedState ? JSON.parse(savedState) : undefined; // Si trouvé, le renvoie sous forme d'objet JavaScript, sinon renvoie undefined
+    return savedState ? JSON.parse(savedState) : undefined; // Renvoie l'état ou undefined
 };
 
 // Charger l'état initial depuis localStorage
@@ -19,7 +18,7 @@ const initialState = loadState(); // Restaure l'état précédent lorsque l'util
 // Configurer le store Redux
 const store = configureStore({
     reducer: {
-        user: userReducer, // L'état de l'utilisateur sera géré par ce réducteur
+        user: userReducer, // Gère l'état de l'utilisateur
     },
     preloadedState: initialState, // Définit l'état initial
 });

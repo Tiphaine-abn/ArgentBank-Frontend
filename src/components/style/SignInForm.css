@@ -1,18 +1,8 @@
-.bg-dark {
+.main-dark {
+    display: flex;
+    align-items: flex-start;
+    min-height: 85vh;
     background-color: #12002b;
-}
-
-.sign-in-button {
-    display: block;
-    width: 100%;
-    padding: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-top: 1rem;
-    border-color: #00bc77;
-    background-color: #00bc77;
-    color: #fff;
-    text-decoration: underline;
 }
 
 .sign-in-content {
@@ -26,6 +16,26 @@
 
 .sign-in-icon {
     font-size: 1.5rem;
+}
+
+.sign-in-button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    background-color: #00bc77;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.sign-in-button:hover {
+    background-color: #00a860;
 }
 
 .input-remember {

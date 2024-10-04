@@ -13,13 +13,13 @@ const userSlice = createSlice({
     },
     reducers: {
         logIn: (state, action) => {
-            state.token = action.payload;
+            state.token = action.payload; // Stocke le token
             state.isConnected = true;
             state.loading = false;
             state.error = null;
         },
         logOut: (state) => {
-            state.token = null;
+            state.token = null; // Supprime le token
             state.isConnected = false;
             state.profile = null;
         },
@@ -31,19 +31,19 @@ const userSlice = createSlice({
                 state.error = null;
             })
             .addCase(userLogin.fulfilled, (state, action) => {
-                state.loading = false;
+                state.loading = false; // Fin du chargement
                 state.isConnected = true;
-                state.token = action.payload; // Stocker le token
+                state.token = action.payload; // Stocke le token d'authentification
             })
             .addCase(userLogin.rejected, (state, action) => {
                 state.loading = false;
-                state.error = action.error.message; // Gérer l'erreur
+                state.error = action.error.message; // Gère l'erreur de connexion
             })
             .addCase(getUserProfile.fulfilled, (state, action) => {
-                state.profile = action.payload; // Stocker le profil
+                state.profile = action.payload; // // Stocke le profil utilisateur
             })
             .addCase(modifyUserProfile.fulfilled, (state, action) => {
-                state.profile = action.payload; // Mettre à jour le profil
+                state.profile = action.payload; // Met à jour le profil utilisateur
             });
     },
 });
