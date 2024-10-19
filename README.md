@@ -18,18 +18,24 @@ Avant de démarrer, assurez-vous d'avoir installé les éléments suivants :
 ## Installation
 
 1. Clonez ces dépôts sur votre machine locale :
+   ```
    git clone https://github.com/Tiphaine-abn/ArgentBank-Frontend.git
    git clone https://github.com/Tiphaine-abn/ArgentBank-Backend.git
+   ```
 
 2. Accédez au répertoire du projet et installez les dépendances :
+    ```
     cd ArgentBank-Frontend
     npm install # Installer les dépendances  
     npm start # Démarrer le serveur de développement local
+    ```
 
 3. Initialisez la base de données :
+    ```
     cd ArgentBank-Backend
     npm run populate-db # Initialiser la base de données avec des utilisateurs fictifs
     npm run dev:server # Démarrer le serveur backend
+    ```
 
 ## Exemples de comptes pour se connecter
 
