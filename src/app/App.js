@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux'; // Fournit le store à l'ensemble de l'appli
 import store from './store';
 
@@ -13,7 +13,7 @@ import './style/App.css';
 function App() {
   return (
     <Provider store={store}>
-      <Router basename={'/ArgentBank-Frontend'}>
+      <Router>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
