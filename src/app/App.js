@@ -13,7 +13,7 @@ import './style/App.css';
 function App() {
   return (
     <Provider store={store}>
-      <Router>
+      <Router basename={'/ArgentBank-Frontend'}>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
