@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-const backendURL = 'http://localhost:3001/api/v1';
+const backendURL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api/v1';
 
 // LOG_IN : Action pour la connexion de l'utilisateur
 export const userLogin = createAsyncThunk(

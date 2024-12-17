@@ -38,7 +38,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: CI=false npm run build --if-present
+    - run: CI=false REACT_APP_API_URL="https://argentbank-backend.onrender.com/" npm run build --if-present
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Upload artifact
